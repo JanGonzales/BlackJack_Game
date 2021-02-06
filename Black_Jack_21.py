@@ -31,11 +31,14 @@ def start():
     total_computer += add(computer_cards)
 
     print(f"Your cards: {user_cards}, current score: {total_user}")
-    print(f"Your cards: {computer_cards}, current score: {total_computer}")  ##debugg
+    print(f"Your cards: {computer_cards}, current score: {total_computer}")  #debugg
 
     restart = True
     while restart:
         var_another_card = input("Type 'y' to get another card, type 'n' to pass: n ").lower()
+
+        if total_computer > 21:
+            cards[1] = 1
 
         if total_computer < 17:
             computer_cards.append(starting_cards(1))
@@ -45,7 +48,7 @@ def start():
             user_cards.append(starting_cards(1))
             total_user += user_cards[-1]
             print(f"Your cards: {user_cards}, current score: {total_user}")
-            print(f"Computer's hand: {computer_cards}, computer score: {total_computer}")  ##debug
+            print(f"Computer's hand: {computer_cards}, computer score: {total_computer}")
             if total_user >= 22:
                 print("\n")
                 print(f"Your cards: {user_cards}, current score: {total_user}")
@@ -57,18 +60,13 @@ def start():
             print("\n")
             print(f"Your cards: {user_cards}, your final score: {total_user}")
             print(f"Computer's final hand: {computer_cards}, final score: {total_computer}")
-            if total_user > total_computer:
+            if total_user == total_computer:
+                print("It is a draw")
+            elif total_user > total_computer:
                 print("You win 😃")
             elif total_user < total_computer:
                 print("You lose 😭")
-            elif total_user == total_computer:
-                print("It is a draw")
             restart = False
-
-
-
-    # if input("Do you want to play a game of Blackjack? Type 'y' or 'n': ").lower() == "y":
-
 
 
 var_user = input("Do you want to play a game of Blackjack? Type 'y' or 'n': ").lower()
