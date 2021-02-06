@@ -47,12 +47,14 @@ def start():
             print(f"Your cards: {user_cards}, current score: {total_user}")
             print(f"Computer's hand: {computer_cards}, computer score: {total_computer}")  ##debug
             if total_user >= 22:
+                print("\n")
                 print(f"Your cards: {user_cards}, current score: {total_user}")
                 print(f"Computer's final hand: {computer_cards}, final score: {total_computer}")
                 print("You lose 😭")
                 restart = False
 
         elif var_another_card == "n":
+            print("\n")
             print(f"Your cards: {user_cards}, your final score: {total_user}")
             print(f"Computer's final hand: {computer_cards}, final score: {total_computer}")
             if total_user > total_computer:
