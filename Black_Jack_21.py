@@ -19,7 +19,6 @@ def starting_cards(number): # add definition
 
 
 def start():
-    global var_another_card
     print(logo)
     user_cards = []
     computer_cards = []
@@ -89,4 +88,3 @@ def start():
 var_user = input("Do you want to play a game of Blackjack? Type 'y' or 'n': ").lower()
 if var_user == "y":
     start()
-##complete QA
