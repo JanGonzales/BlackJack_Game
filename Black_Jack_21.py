@@ -2,7 +2,9 @@ import random
 from ASCII_ART import logo
 import os
 
-cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]  # create a function to deal cards
+def deal_card():
+    cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]  # create a function to deal cards
+    return random.choice(cards)
 
 
 def add(totals):
@@ -14,7 +16,7 @@ def add(totals):
 
 def starting_cards(number): # add definition
     for card in range(0, number):
-        random_cards = random.choice(cards)
+        random_cards = random.choice(deal_card())
         return random_cards
 
 
@@ -25,7 +27,7 @@ def start():
     total_user = 0
     total_computer = 0
 
-    for card in range(0, 2):
+    for card in range(2):
         user_cards.append(starting_cards(2))
         computer_cards.append(starting_cards(2))
     total_user += add(user_cards)  # Use sum function
