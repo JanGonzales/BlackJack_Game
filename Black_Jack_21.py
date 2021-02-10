@@ -2,9 +2,7 @@ import random
 from ASCII_ART import logo
 import os
 
-def deal_card():
-    cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]  # create a function to deal cards
-    return random.choice(cards)
+cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]  # create a function to deal cards
 
 
 def add(totals):
@@ -14,9 +12,9 @@ def add(totals):
     return total_sum
 
 
-def starting_cards(number): # add definition
+def starting_cards(number):  # add definition
     for card in range(0, number):
-        random_cards = random.choice(deal_card())
+        random_cards = random.choice(cards)
         return random_cards
 
 
@@ -27,7 +25,7 @@ def start():
     total_user = 0
     total_computer = 0
 
-    for card in range(2):
+    for card in range(0, 2):
         user_cards.append(starting_cards(2))
         computer_cards.append(starting_cards(2))
     total_user += add(user_cards)  # Use sum function
@@ -43,7 +41,7 @@ def start():
         if total_computer > 21:
             cards[1] = 1  # if user score is equal to 21 change Ace to var 1
 
-        if total_computer < 17: # use while loop
+        if total_computer < 17:  # use while loop
             computer_cards.append(starting_cards(1))
             total_computer += computer_cards[-1]
 
@@ -51,7 +49,7 @@ def start():
             user_cards.append(starting_cards(1))
             total_user += user_cards[-1]
             print(f"Your cards: {user_cards}, current score: {total_user}")
-            if total_user >= 22: if #computer and player gets blackjack game ends
+            if total_user >= 22:  # computer and player gets blackjack game ends
                 print("\n")
                 print(f"Your cards: {user_cards}, current score: {total_user}")
                 print(f"Computer's final hand: {computer_cards}, final score: {total_computer}")
@@ -68,7 +66,7 @@ def start():
                 print("You win 😃")
             elif total_user == total_computer:
                 print("It is a draw")
-            elif total_user > total_computer: # create a function that compares
+            elif total_user > total_computer:  # create a function that compares
                 print("You win 😃")
             elif total_user < total_computer:
                 print("You lose 😭")
